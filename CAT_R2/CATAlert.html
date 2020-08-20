@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CAT Files Existing Alert</title>
+<!--  ENVIRONMENT CHANGES
+Call by CAT system from within CATcode.js
+-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">
+$(document).ready(work);
+function work() {
+var i, parent, node, div = document.getElementById("file-list"),
+files = location.search.split("&");
+parent = document.createElement("ul");
+div.appendChild(parent);
+for (i = 0; i < files.length; i++) {
+node = document.createElement("li");
+node.appendChild(document.createTextNode(files[i].split(",")[0]));
+parent.appendChild(node);
+}
+}
+function takeAction(buttonObj) {
+window.opener.completeQueuedCheck(buttonObj.form["action2take"]);
+window.close();
+}
+</script>
+<style type="text/css">
+body {font:normal 12pt Arial,sans-serif;
+border:5px outset blue;
+padding: 2em;
+</style>
+</head>
+<body>
+The CAT System has detected one or more files indicated below already in the document
+library which have the same file name that you are attempting to upload:
+<div id="file-list"></div>
+<p>
+<p>
+The following choices are available to you:
+</p>
+<form>
+<input type="radio" name="action2take" value="cancel" /> Cancel the operation. <br />
+<span class="note">
+In this case, you may want to check the Master Log list and library to see if the files
+and list entry have already been done.</span> <br />
+<input type="radio" name="action2take" value="delete" /> Delete the listed files and upload your selected files and
+complete the creation of the list entry
+<p>
+<button type="button" onclick="takeAction(this);">Take Action</button>
+</p>
+</form>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Initiate Letter in CAT</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/SiteAssets/scripts/InterfaceSPListRESTv2.js"></script>
+<script src="/SiteAssets/scripts/InterfaceSPUser+REST.js"></script>
+<script src="/SiteAssets/scripts/RESTEmailService.js"></script>
+<script src="/SiteAssets/PersonnelControl/PersonnelControlCodeCore.js"></script>
+<script src="/SiteAssets/scripts/rsvp.min.js"></script>
+<script src="/SiteAssets/scripts/utility.js"></script>
+<script>
+environmentPersonnel = PROD_PERSONNEL;
+</script>
+<script src="CATDefs.js"></script>
+<script src="CATLetterInitiate.js"></script>
+<link href="/Style%20Library/basicStyles.css" type="text/css" rel="stylesheet" />
+<link href="CATLetterInitiate.css" type="text/css" rel="stylesheet" />
+</head>
+<body onload="init();">
+<div id="larger-container">
+<p style="float:right;margin:0;">
+<img style="height:36pt;border:2px solid orange;" src="CAT%20images/CATlogo.png" alt="CAT logo" />
+</p>
+<p id="page-title">Initiate Letter</p>
+<form id="initiate-form">
+<div id="initial" style="display:none;">
+This form is intended for analysts who want to initiate a correspondence letter within
+the CAT system. Please fill out the textbox controls for the necessary elements.
+</p><p>
+The analyst name field and unit assignment are already completed based on the identity of
+the user opening this form.
+</p><p>
+The form data will be sent to the Correspondence Coordinator who will control the entries
+and may respond back by email with questions if necessary. When approved, expect an email
+message to a form that will enable uploading of the letter and its attachments.
+</p>
+</div>
+<div id="rejected" style="display:none;">
+The Correspondence Coordinator has sent your submission back with the following
+reason:
+<p id="reject-reason"></p>
+<p>
+Please make any necessary corrections and re-submit if you proceed with the initiated
+letter.
+</p>
+</div>
+<fieldset>
+<legend>Information To Initiate Letter</legend>
+<div class="std-grid">
+<label style="-ms-grid-row:1;-ms-grid-column:1;" >Analyst:</label>
+<input disabled
+style="-ms-grid-row:1;-ms-grid-column:2;background-color:#f0f0f0;color:#666;font-size:12pt;"
+type="text" name="analyst" size="30" />
+<label style="-ms-grid-row:2;-ms-grid-column:1;" >Unit:</label>
+<p class="control-container" id="unit-initiating"
+style="-ms-grid-row:2;-ms-grid-column:2;" ></p>
+<label style="-ms-grid-row:3;-ms-grid-column:1;" >Vendor:</label>
+<p class="control-container" style="-ms-grid-row:3;-ms-grid-column:2;" >
+<input type="radio" name="vendor" value="FI"  checked />FI&nbsp;&nbsp;&nbsp;
+<input type="radio" name="vendor" value="ASO"          />ASO&nbsp;&nbsp;&nbsp;
+<input type="radio" name="vendor" value="FA"  />Both ASO &amp; FI
+</p>
+<label style="-ms-grid-row:4;-ms-grid-column:1;">Letter Subject:</label>
+<textarea style="-ms-grid-row:4;-ms-grid-column:2;font:normal 11pt 'Courier New',Courier,monospace;"
+placeholder="maximum 255 characters; words underlined in red note errors found in spell check"
+name="letterSubject" rows="5" cols="60"
+placeholder="A concise and properly descriptive subject here"></textarea>
+</div>
+<input type="hidden" name="emailAddress" />
+</fieldset>
+<!-- ============================ OK Button ============================ -->
+<p id="submit-controls">
+<button id="OK-button" type="button" onclick="processForm(this.form);">OK</button>
+<button type="button" onclick="clearForm(this.form);">Clear</button>
+</p>
+<div id="email-sent">Email Sent To Correspondence Coordinator</div>
+</form>
+</div>
+</body>
+</html>
+Stephen “Mitch” Halloran | Medi-Cal Dental Technical Analyst
+Medi-Cal Dental Services
+California Department of Health Care Services (DHCS)
+Office: (916) 464-2629
+Welcome to the State of California

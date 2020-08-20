@@ -1,0 +1,79 @@
+legend {
+color:navy;
+font:bold 95% Verdana,Tahoma,sans-serif;
+padding:0 0.5em 0.5em;
+}
+label {
+vertical-align:top;
+font:bold 85% Arial,Helvetica,sans-serif;
+color:navy;
+margin:0.5em auto;
+width:11em;
+display:inline-block;
+}
+body {
+font:normal 12pt Arial,Helvetica,sans-serif;
+background-image: url("CAT images/cats-photo-montage-faded.jpg");
+background-repeat: repeat;
+}
+fieldset {
+border:1px solid black;
+}
+input, textarea {margin:0.2em 1em;}
+div#larger-container {
+padding:1em;
+width:51em;
+margin:0 auto;
+background-color:white;
+z-index:0;
+position:relative;
+}
+#initiate-form {
+width:45em;
+margin:1.5em auto 0 auto;
+border-left:1px solid black;
+border-top:1px solid black;
+border-right:4px solid #aaa;
+border-bottom:4px solid #aaa;
+border-radius:5px;
+background-color:#f8f8f8;
+padding:1em 3em;
+}
+p#page-title {
+margin:0;
+font:bold 16pt Verdana,Arial,sans-serif;
+color:rgb(64,16,92);
+}
+div.std-grid {
+display:-ms-grid;
+display:grid;
+-ms-grid-columns:auto 1fr;
+grid-template-columns:auto 1fr;
+}
+p#submit-controls {margin-top:1em;}
+span.unit-options {
+display:inline-block;
+width:6em;
+text-align:left;
+padding:0.2em 0;
+font:bold 11pt Verdana,Arial,sans-serif;
+color:black;
+border:1px dotted silver;
+}
+span.unit-options input {
+margin-left:0.5em;
+}
+#email-sent {
+display:none;
+font:bold 14pt Verdana,sans-serif;
+color:green;
+padding:0.5em 1.5em;
+border:1px solid red;
+margin:0 10%;
+text-align:center;
+}
+#reject-reason {
+margin-left:5em;
+color: maroon;
+font:bold 12pt 'Courier New',Courier,monospace;
+}
